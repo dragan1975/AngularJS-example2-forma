@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Form</title>
+		<link href="style.css" rel="stylesheet" />
+	</head>
+<body>	
+<form ng-app="forma" ng-controller="FormaController"><!-- definisi scope applikacije forma i imenuj kontroler-->
+	<h1>Servisi</h1>
+	<ul>
+		<li ng-repeat="service in services" ng-class="{active:service.active}" ng-click="toggleActive(service)"><!-- postavi clasu active ako service.active vraca true-->
+			{{service.name}} <span>{{service.price}}e</span>
+		</li>
+	</ul>
+	<div class="total">
+		Ukupna cijena: <span>{{total()}}e</span><!-- funkcija koja sabira servise (cijene) gdje je u modelu (nizu) services svojstvo active postavljeno na true  -->
+	</div>
+</form>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="script.js"></script>
+</body>	
+</html>
